@@ -26,10 +26,10 @@ This project was built using AI, from wireframe design to development.
 
 ## Screenshots
 
-### Screen 1: [HomeScreen]
+### Screen 1: HomeScreen
 ![Screenshot 1](assets/images/screenshot1.png)
 
-### Screen 2: [AddTaskScreen]
+### Screen 2: AddTaskScreen
 ![Screenshot 2](assets/images/screenshot2.png)
 
 ...
