@@ -20,6 +20,19 @@
 Reminder is a TypeScript-based application aimed at helping users manage their tasks and reminders efficiently. It is designed to be lightweight, scalable, and easy to integrate with other systems.
 
 ---
+This project was built using AI, from wireframe design to development.
+
+![Reminder](assets/images/Reminder.png)
+
+## Screenshots
+
+### Screen 1: [Function/Feature Name]
+![Screenshot 1](relative-path-to-file/screenshot1.png)
+
+### Screen 2: [Function/Feature Name]
+![Screenshot 2](relative-path-to-file/screenshot2.png)
+
+...
 
 ## Features
 
