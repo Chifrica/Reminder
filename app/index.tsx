@@ -22,82 +22,49 @@ interface Task {
 }
 
 const HomeScreen = () => {
-  const navigation = useNavigation();
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const { addTask } = useTaskContext();
-  const [taskName, setTaskName] = useState('');
-  const [description, setDescription] = useState('');
-  const [time, setTime] = useState('');
+    const navigation = useNavigation();
+    const { tasks, toggleTaskComplete } = useTaskContext();
 
-  const handleSaveTask = () => {
-    const error = validateTask(taskName, description, time);
-    if (error) {
-      Alert.alert('Validation Error', error);
-      return;
-    }
-
-    const newTask = {
-      id: Date.now().toString(),
-      title: taskName,
-      description,
-      time,
-      completed: false
-    };
-
-    addTask(newTask);
-    navigation.goBack();
-  };
-
-  const toggleTaskComplete = (id: string) => {
-    setTasks(tasks.map(task => 
-      task.id === id ? { ...task, completed: !task.completed } : task
-    ));
-  };
-
-  // const addTask = (newTask: Task) => {
-  //   setTasks(prevTasks => [...prevTasks, newTask]);
-  // };
-
-  const renderTask = ({ item }: { item: Task }) => (
-    <TouchableOpacity 
-      style={styles.taskItem}
-      onPress={() => toggleTaskComplete(item.id)}
-    >
-      <View style={styles.taskRow}>
-        <View style={[styles.checkbox, item.completed && styles.checked]}>
-          {item.completed && <Icon name="checkmark" size={16} color="#FFF" />}
-        </View>
-        <Text style={[styles.taskText, item.completed && styles.completedText]}>
-          {item.title}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>My To-Do List</Text>
-        <TouchableOpacity>
-          <Icon name="notifications-outline" size={24} color="#333" />
+    const renderTask = ({ item }: { item: Task }) => (
+        <TouchableOpacity 
+            style={styles.taskItem}
+            onPress={() => toggleTaskComplete(item.id)}
+        >
+            <View style={styles.taskRow}>
+                <View style={[styles.checkbox, item.completed && styles.checked]}>
+                    {item.completed && <Icon name="checkmark" size={16} color="#FFF" />}
+                </View>
+                <Text style={[styles.taskText, item.completed && styles.completedText]}>
+                    {item.title}
+                </Text>
+            </View>
         </TouchableOpacity>
-      </View>
+    );
 
-      <FlatList
-        data={tasks}
-        renderItem={renderTask}
-        keyExtractor={item => item.id}
-        style={styles.list}
-      />
+    return (
+        <SafeAreaView style={styles.container}>
+            <View style={styles.header}>
+                <Text style={styles.title}>My To-Do List</Text>
+                <TouchableOpacity>
+                    <Icon name="notifications-outline" size={24} color="#333" />
+                </TouchableOpacity>
+            </View>
 
-      <TouchableOpacity 
-        style={styles.addButton}
-        onPress={() => navigation.navigate('AddTaskScreen', { addTask })}
-              >
-        <Text style={styles.addButtonText}>+ Add Task</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
-  );
+            <FlatList
+                data={tasks}
+                renderItem={renderTask}
+                keyExtractor={item => item.id}
+                style={styles.list}
+            />
+
+            <TouchableOpacity 
+                style={styles.addButton}
+                onPress={() => navigation.navigate('AddTaskScreen')}
+            >
+                <Text style={styles.addButtonText}>+ Add Task</Text>
+            </TouchableOpacity>
+        </SafeAreaView>
+    );
 };
 
 const styles = StyleSheet.create({

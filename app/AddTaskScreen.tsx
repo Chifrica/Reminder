@@ -21,18 +21,13 @@ const AddTaskScreen = () => {
   const [time, setTime] = useState('');
 
   const handleTimeInput = (inputTime: string) => {
-    if (isValidTime(inputTime)) {
-      setTime(inputTime);
-    } else {
-      Alert.alert('Invalid Time', 'Please enter time in HH:MM AM/PM format');
-    }
+    setTime(inputTime); // No validation here.
   };
 
   const handleSaveTask = () => {
-    const error = validateTask(taskName, description, time);
-    if (error) {
-      Alert.alert('Validation Error', error);
-      return;
+    if (!isValidTime(time)) {
+        Alert.alert('Invalid Time', 'Please enter time in HH:MM AM/PM format');
+        return;
     }
 
     if (!isValidTime(time)) {
@@ -79,7 +74,10 @@ const AddTaskScreen = () => {
       />
 
       <TextInput
-        style={styles.input}
+        style={[
+            styles.input,
+            !isValidTime(time) && { borderColor: 'red', borderWidth: 1 },
+        ]}
         placeholder="Time (HH:MM AM/PM)"
         value={time}
         onChangeText={handleTimeInput}
