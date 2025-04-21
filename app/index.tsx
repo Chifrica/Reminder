@@ -57,6 +57,15 @@ const HomeScreen = () => {
                 style={styles.list}
             />
 
+
+            <TouchableOpacity 
+                style={styles.chatButton}
+                onPress={() => navigation.navigate('ChatScreen')}
+            >
+                <Text style={styles.chatButtonText}>Chat with AI</Text>
+            </TouchableOpacity>
+
+
             <TouchableOpacity 
                 style={styles.addButton}
                 onPress={() => navigation.navigate('AddTaskScreen')}
@@ -131,6 +140,18 @@ const styles = StyleSheet.create({
     color: '#333',
     fontSize: 16,
     fontWeight: '500',
+  },
+  chatButton: {
+    padding: 16,
+    backgroundColor: '#4CAF50',
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  chatButtonText: {
+      color: '#fff',
+      fontSize: 16,
+      fontWeight: '500',
   },
 });
 
