@@ -1,50 +1,160 @@
-# Welcome to your Expo app 👋
+# Reminder
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Reminder** is a project written in **TypeScript** designed to provide a comprehensive system for managing reminders. This documentation explains the purpose, features, and structure of the project while providing guidelines for developers who want to contribute.
 
-## Get started
+---
 
-1. Install dependencies
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Getting Started](#getting-started)
+4. [Project Structure](#project-structure)
+5. [Contributing](#contributing)
+6. [License](#license)
+
+---
+
+## Overview
+
+Reminder is a TypeScript-based application aimed at helping users manage their tasks and reminders efficiently. It is designed to be lightweight, scalable, and easy to integrate with other systems.
+
+---
+This project was built using AI, from wireframe design to development.
+
+![Reminder](assets/images/Reminder.png)
+
+## Screenshots
+
+### Screen 1: [Function/Feature Name]
+![Screenshot 1](relative-path-to-file/screenshot1.png)
+
+### Screen 2: [Function/Feature Name]
+![Screenshot 2](relative-path-to-file/screenshot2.png)
+
+...
+
+## Features
+
+- **Task Management**: Add, update, complete, and delete reminders.
+- **User-Friendly Interface**: Simple and intuitive UI for managing reminders.
+- **Cross-Platform**: Compatible with web and mobile platforms (if applicable).
+- **Extensible**: Easy to add new features or integrate with APIs.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+To work with this project, you will need:
+
+- **Node.js** (version 16.x or above)
+- **npm** or **yarn** (latest version recommended)
+- A code editor, such as Visual Studio Code
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Chifrica/Reminder.git
+   cd Reminder
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Start the development server:
 
    ```bash
-    npx expo start
+   npm run dev
    ```
 
-In the output, you'll find options to open the app in a
+4. Open your browser and navigate to `http://localhost:3000`.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Project Structure
 
-## Get a fresh project
+Below is a high-level overview of the project's structure:
 
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+Reminder/
+├── src/                # Main source code
+│   ├── components/     # Reusable UI components
+│   ├── pages/          # Page components
+│   ├── utils/          # Utility functions
+│   ├── services/       # API calls and business logic
+│   └── styles/         # CSS/SCSS files
+├── public/             # Static assets (images, icons, etc.)
+├── README.md           # Project documentation
+├── package.json        # Project metadata and dependencies
+└── tsconfig.json       # TypeScript configuration
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## Contributing
 
-To learn more about developing your project with Expo, look at the following resources:
+We welcome contributions from developers worldwide! Follow the steps below to contribute:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 1. Fork the Repository
 
-## Join the community
+Click on the "Fork" button at the top-right corner of the repository page to create a copy of the repository in your account.
 
-Join our community of developers creating universal apps.
+### 2. Clone Your Fork
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/<your-username>/Reminder.git
+cd Reminder
+```
+
+### 3. Create a Branch
+
+Create a new branch for your feature or bug fix:
+
+```bash
+git checkout -b feature/my-new-feature
+```
+
+### 4. Make Changes
+
+Make your changes in the codebase. Please ensure your code follows the project's coding standards and includes relevant tests.
+
+### 5. Test Your Changes
+
+Run the project's test suite to ensure your changes work as expected:
+
+```bash
+npm run test
+```
+
+### 6. Commit and Push
+
+Commit your changes with a descriptive message:
+
+```bash
+git add .
+git commit -m "Add feature: my new feature"
+git push origin feature/my-new-feature
+```
+
+### 7. Submit a Pull Request
+
+Go to the original repository and click on the "New Pull Request" button. Provide a clear description of your changes and why they should be merged.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software as per the terms of the license.
+
+---
+
+Feel free to customize this template by adding any project-specific details or instructions. If you want me to dig deeper into your repository's code or refine specific parts of the documentation, let me know!
