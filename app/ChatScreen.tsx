@@ -31,12 +31,12 @@ const ChatScreen = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`, // Replace with your OpenAI API key
+            'Authorization': `Bearer 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`,
           },
           body: JSON.stringify({
             model: 'openai/gpt-4o', // Use the appropriate model
             messages: [...chatHistory, userMessage],
-            max_tokens: 3500, // Limit response length
+            max_tokens: 1000, // Limit response length
             temperature: 0.7, // Adjust creativity
           }),
         });
