@@ -27,15 +27,19 @@ const ChatScreen = () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch('https://api.deepseek.com/chat/completions', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer YOUR_API_KEY`, // Replace with your OpenAI API key
+            'Authorization': `Bearer <sk-84010ba63b354a939c8d3e69d5a01172>`, // Replace with your OpenAI API key
           },
           body: JSON.stringify({
-            model: 'gpt-3.5-turbo', // Use the appropriate model
-            messages: [...chatHistory, userMessage],
+            model: 'deepseek-chat', // Use the appropriate model
+            messages: [
+              {...chatHistory}, 
+              {userMessage}
+            ],
+            "stream": false, // Set to true for streaming responses
             max_tokens: 150, // Limit response length
             temperature: 0.7, // Adjust creativity
           }),
