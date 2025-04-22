@@ -27,37 +27,34 @@ const ChatScreen = () => {
       setIsLoading(true);
 
       try {
-        const response = await fetch('https://api.deepseek.com/chat/completions', {
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer <sk-84010ba63b354a939c8d3e69d5a01172>`, // Replace with your OpenAI API key
+            'Authorization': `Bearer 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`, // Replace with your OpenAI API key
           },
           body: JSON.stringify({
-            model: 'deepseek-chat', // Use the appropriate model
-            messages: [
-              {...chatHistory}, 
-              {userMessage}
-            ],
-            "stream": false, // Set to true for streaming responses
-            max_tokens: 150, // Limit response length
+            model: 'openai/gpt-4o', // Use the appropriate model
+            messages: [...chatHistory, userMessage],
+            max_tokens: 3500, // Limit response length
             temperature: 0.7, // Adjust creativity
           }),
         });
-
+  
         const data = await response.json();
-
-        // Check if the response is valid
-        if (data.choices && data.choices[0].message) {
+  
+        if (data.choices && data.choices[0]?.message?.content) {
           const aiMessage = { role: 'assistant', content: data.choices[0].message.content };
           setChatHistory((prev) => [...prev, aiMessage]);
         } else {
-          throw new Error('Invalid response from API');
+          throw new Error('Invalid API response');
         }
       } catch (error) {
         console.error('Error during AI chat:', error);
-        const errorMessage = { role: 'assistant', content: 'Something went wrong. Please try again.' };
-        setChatHistory((prev) => [...prev, errorMessage]);
+        setChatHistory((prev) => [
+          ...prev,
+          { role: 'assistant', content: 'Something went wrong. Please try again.' },
+        ]);
       } finally {
         setIsLoading(false);
       }
@@ -78,7 +75,7 @@ const ChatScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Icon name="logo-github" size={40} color="#333" />
-        <Text style={styles.headerTitle}>Chat with AI</Text>
+        <Text style={styles.headerTitle}>Chat with dev_blessing AI</Text>
       </View>
 
       <FlatList
