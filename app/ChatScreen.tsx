@@ -31,7 +31,7 @@ const ChatScreen = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`,
+            'Authorization': `Bearer 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`,
           },
           body: JSON.stringify({
             model: 'openai/gpt-4o', // Use the appropriate model
@@ -75,7 +75,7 @@ const ChatScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Icon name="logo-github" size={40} color="#333" />
-        <Text style={styles.headerTitle}>Chat with dev_blessing AI</Text>
+        <Text style={styles.headerTitle}>Chat with Chifrica AI</Text>
       </View>
 
       <FlatList
@@ -88,7 +88,7 @@ const ChatScreen = () => {
       {isLoading && (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#4CAF50" />
-          <Text style={styles.loadingText}>AI is thinking...</Text>
+          <Text style={styles.loadingText}>Chifrica AI is thinking...</Text>
         </View>
       )}
 
